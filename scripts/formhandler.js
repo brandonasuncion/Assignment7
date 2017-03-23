@@ -84,12 +84,15 @@
         this.$formElement.on('input', '[name="coffee"], [id="strengthLevel"]', function(event) {
             var message = '';
             if (fn2($('[name="coffee"]').val(), $('[id="strengthLevel"]').val())) {
-                event.target.setCustomValidity('');
+                $('[id="strengthLevel"]').get(0).setCustomValidity('');
+                //console.log('Valid strength value');
             } else {
-                message = 'Strength value is not valid for decaf!'
-                event.target.setCustomValidity(message);
+                message = 'Strength value is not valid for decaf orders!'
+                $('[id="strengthLevel"]').get(0).setCustomValidity(message);
+                //console.log(message);
             }
         });
+        $('[name="coffee"]').trigger('input');
     };
 
 
